@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Eventbrite Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+      <!-- API data goes here -->
+      <div id="eventDescription"></div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    var anonAPIToken = "XIEHEGJIL4AIJWBFGTRC";
+    
+
+    var queryURL = "https://www.eventbriteapi.com/v3/events/search/?token=" + anonAPIToken + "&q=music%2C+jazz&location.address=new+orleans%2C+la";
+    // var queryURL = "https://www.eventbriteapi.com/v3/events/search/?q=music%2C+jazz&location.address=new+orleans%2C+la&key=" + APIKey;
+
+
+    $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+
+        // store all of the retrieved data inside of an object called "response"
+        .done(function(response) {
+            
+            console.log(queryURL);
+          
+            //events is an array -- write loop to pull from array
+
+            var eventResults = response.events;
+
+            console.log(eventResults);
+
+            for (var i = 0; i < eventResults.length; i++) {
+
+              var eventDiv = $("<div>");
+
+              var p = $("<p>").text("Event: " + eventResults[i].name);
+              var p = $("<p>").text("Description: " + eventResults[i].description);
+
+              eventDiv.append(p);
+
+              $("#eventDescription").append(eventDiv);
+
+
+            }
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>
