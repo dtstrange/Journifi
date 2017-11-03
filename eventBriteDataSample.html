@@ -45,11 +45,13 @@
 
               var eventDiv = $("<div>");
 
-              var p = $("<p>").text("Event: " + eventResults[i].name);
-              var p = $("<p>").text("Description: " + eventResults[i].description);
+
+
+              var p = $("<p>").text("Event: " + eventResults[i].name.text);
+              // var p = $("<p>").text("Description: " + eventResults[i].description);
 
               eventDiv.append(p);
-
+              console.log(p);
               $("#eventDescription").append(eventDiv);
 
 
