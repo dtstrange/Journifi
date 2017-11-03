@@ -47,11 +47,12 @@
 
 
 
-              var p = $("<p>").html("Event: " + eventResults[i].name.html);
-              // var p = $("<p>").text("Description: " + eventResults[i].description);
+              var eventName = $("<p>").html("<h2>" + "Event: " + eventResults[i].name.html + "</h2>");
+              var eventDescription = $("<p>").html("Description: " + eventResults[i].description.html + "<hr>");
 
-              eventDiv.append(p);
-              console.log(p);
+              eventDiv.append(eventName, eventDescription);
+              console.log(eventName);
+
               $("#eventDescription").append(eventDiv);
 
 
