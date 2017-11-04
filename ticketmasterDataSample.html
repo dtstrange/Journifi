@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TicketMaster Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <!-- API data goes here -->
+        <div id="eventsDescription"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
+
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=324&apikey=" + APIKey;
+
+        $.ajax({
+            type: "GET",
+            url: queryURL,
+            async: true,
+            dataType: "json",
+            success: function(json) {
+                console.log(json);
+                //events is an array -- write loop to pull from array
+
+                var eventsResults = json._embedded.events;
+
+                console.log(eventsResults);
+
+                for (var i = 0; i < eventsResults.length; i++) {
+
+                    var eventsDiv = $("<div>");
+
+
+
+                    var eventsName = $("<p>").html("<h2>" + eventsResults[i].name + "</h2>");
+                    var eventsDate = $("<p>").html(eventsResults[i].dates.start.dateTime);
+                    var eventsURL = $("<p>").html("<a href =" + eventsResults[i].url + ' target="_blank"' + ">" + "Click Here to go to TicketMaster Website" + "</a><hr>");
+
+                    eventsDiv.append(eventsName, eventsDate, eventsURL);
+                    console.log(eventsResults[i].name);
+                    console.log(eventsResults[i].dates.start);
+
+                    $("#eventsDescription").append(eventsDiv);
+
+
+                }
+
+
+
+
+
+            },
+            error: function(xhr, status, err) {
+                // This time, we do not end up here!
+            }
+        });
+
+
+
+    });
+    </script>
+</body>
+
+</html>
