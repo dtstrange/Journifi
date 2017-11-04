@@ -19,7 +19,7 @@
 
         var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
 
-        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=324&apikey=" + APIKey;
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=sports&city=san+diego&apikey=" + APIKey;
 
         $.ajax({
             type: "GET",
@@ -38,15 +38,23 @@
 
                     var eventsDiv = $("<div>");
 
+                        for (var i = 0; i < eventsResults.images.length; i++) {
 
 
                     var eventsName = $("<p>").html("<h2>" + eventsResults[i].name + "</h2>");
+                    var eventsImg = $("<img>");
+                    eventsImg.attr("src", eventsResults[i].images[i]);
                     var eventsDate = $("<p>").html(eventsResults[i].dates.start.dateTime);
                     var eventsURL = $("<p>").html("<a href =" + eventsResults[i].url + ' target="_blank"' + ">" + "Click Here to go to TicketMaster Website" + "</a><hr>");
 
-                    eventsDiv.append(eventsName, eventsDate, eventsURL);
+                    eventsDiv.append(eventsName, eventsImg, eventsDate, eventsURL);
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
+
+
+
+                    }
+
 
                     $("#eventsDescription").append(eventsDiv);
 
