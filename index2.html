@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Journifi</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Journifi</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left">
+
+        <div class="form-group">
+          <label for="example-date-input" class="col-form-label">Location</label>
+          <div class="col-10">
+              <input id="locationinput" type="text" class="form-control" placeholder="i.e. Irvine, CA">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="startdateinput" class="col-form-label">Start Date</label>
+          <div class="col-10">
+            <input class="form-control" type="date" id="startdateinput">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="enddateinput" class="col-form-label">End Date</label>
+          <div class="col-10">
+            <input class="form-control" type="date" id="enddateinput">
+          </div>
+        </div>
+        <button type="submit" id="searchbutton" class="btn btn-default">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li id="datedropdown"><a href="#">Date</a></li>
+            <li id="distancedropdown"><a href="#">Distance</a></li>
+            <li id="bestdropdown"><a href="#">Best</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container-fluid text-center" id="innercontainer">
+
+<div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+
+  </div>
+
+
+<!--Link to firebase-->
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+
+<!-- Link to Moment.js -->
+ <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+<!-- JAVASCRIPT  -->
+<script type="text/javascript">
+
+//Configuring firebase
+  var config = {
+    apiKey: "AIzaSyB2RMTrelT1n0sbtrfSjt08429udgBAqKo",
+    authDomain: "myproject1-669d5.firebaseapp.com",
+    databaseURL: "https://myproject1-669d5.firebaseio.com",
+    projectId: "myproject1-669d5",
+    storageBucket: "myproject1-669d5.appspot.com",
+    messagingSenderId: "102943549351"
+  };
+
+  firebase.initializeApp(config);
+
+  var startDate = ""
+  var endDate = ""
+  var locationCity = ""
+
+  $("#searchbutton").on("click", function() {
+      event.preventDefault();
+// //grab values of inputs from by targeting ids of input and throw it in the empty variables made above.
+    database = firebase.database();
+    startDate = $("#startdateinput").val();
+    endDate = $("#enddateinput").val();
+    locationCity = $("#locationinput").val().trim();
+
+//Push all info into firebase
+    database.ref().push({
+      startDate : startDate,
+      endDate : endDate,
+      location : locationCity,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+
+//firebase watcher to pull data from firebase and then pull relevant eventbrite API accordingly
+
+    database.ref().on("value", function(snapshot) {
+      //call event info using firebase info as the keys.
+        var obj = snapshot.val();
+        console.log(obj);
+        var utcFormat = "YYYY-MM-DDThh:mm:ss";
+        var convertedStartDate = moment(obj.startDate, utcFormat);
+        var convertedEndDate = moment(obj.endDate, utcFormat);
+        var queryArrayURL = "https://www.eventbriteapi.com/v3/events/search/?sort_by=" + "best" + "&location.address=" + "irvine%2C+ca" + "&start_date.range_start=" + "2017-11-05T00%3A00%3A00" + "&start_date.range_end=" + "2017-11-10T00%3A00%3A00" + "&token=XIEHEGJIL4AIJWBFGTRC"
+
+          //AJAX call to pull event Data
+          $.ajax({
+            url: queryArrayURL,
+            method: "GET"
+          })  .done(function(response) {
+                for (var i = 0; i < 11; i++) { //for first 10 events.
+                  var newPanel = $("<div>");
+                  var eventName = response.events[i].name.text;
+                  console.log(eventName)
+                  newPanel.append(eventName);
+                  $("#innercontainer").append(newPanel);
+
+                };//for loop end
+              });//done end
+    });
+
+  }); //end of on searchbutton click function.
+
+
+
+</script>
+
+</body>
+</html>
