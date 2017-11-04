@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Journifi</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Journifi</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        <div class="container-fluid text-center" id="innercontainer">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <img src="https://pbs.twimg.com/profile_images/1083717041/jy_twitterB_W.jpg" class="img-circle">
+                <!--LOCATION SEARCH BAR-->
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search Location">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Search</button>
+                    </span>
+                </div>
+                <!-- /input-group -->
+                <!-- /.col-lg-6 -->
+                <!--DATE SEARCH BAR-->
+                <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
+                <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
+                <!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
+                <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+                <!--Font Awesome (added because you use icons in your prepend/append)-->
+                <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+                <!-- Inline CSS based on choices in "Settings" tab -->
+                <style>
+                .bootstrap-iso .formden_header h2,
+                .bootstrap-iso .formden_header p,
+                .bootstrap-iso form {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: black
+                    background-color:rgba(255,255,255,.4)
+                }
+
+                .bootstrap-iso form button,
+                .bootstrap-iso form button:hover {
+                    color: white !important;
+                }
+
+                .asteriskField {
+                    color: red;
+                }
+                </style>
+                <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+                <div class="bootstrap-iso">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
+                                    <div class="form-group ">
+                                        <label class="control-label col-sm-2 requiredField" for="date">
+                                            Date
+                                        </label>
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar">
+                                                    </i>
+                                                </div>
+                                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-10 col-sm-offset-2">
+                                            <input name="_honey" style="display:none" type="text" />
+                                            <button class="btn btn-primary " name="submit" type="submit">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+                <!-- Include jQuery -->
+                <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+                <!-- Include Date Range Picker -->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+                <script>
+                $(document).ready(function() {
+                    var date_input = $('input[name="date"]'); //our date input has the name "date"
+                    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                    date_input.datepicker({
+                        format: 'mm/dd/yyyy',
+                        container: container,
+                        todayHighlight: true,
+                        autoclose: true,
+                    })
+                })
+                </script>
+                <!-- /input-group -->
+                <!-- /.col-lg-6 -->
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+    <!-- JAVASCRIPT  -->
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>
