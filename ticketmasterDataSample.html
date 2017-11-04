@@ -38,26 +38,17 @@
 
                     var eventsDiv = $("<div>");
 
-                        for (var i = 0; i < eventsResults.images.length; i++) {
-
-
-                    var eventsName = $("<p>").html("<h2>" + eventsResults[i].name + "</h2>");
-                    var eventsImg = $("<img>");
-                    eventsImg.attr("src", eventsResults[i].images[i]);
+                    var eventsName = $("<p>").html(`<h2>${eventsResults[i].name}</h2>`);
+                    var eventsImg = $("<img>").attr("src", eventsResults[i].images[0].url);
                     var eventsDate = $("<p>").html(eventsResults[i].dates.start.dateTime);
-                    var eventsURL = $("<p>").html("<a href =" + eventsResults[i].url + ' target="_blank"' + ">" + "Click Here to go to TicketMaster Website" + "</a><hr>");
+                    var eventsURL = $("<button class='btn btn-default'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
+                    var hr = $('<hr />');
 
-                    eventsDiv.append(eventsName, eventsImg, eventsDate, eventsURL);
+                    eventsDiv.append(eventsName, eventsImg, eventsDate, eventsURL, hr);
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
 
-
-
-                    }
-
-
                     $("#eventsDescription").append(eventsDiv);
-
 
                 }
 
