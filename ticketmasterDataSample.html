@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>TicketMaster Data</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
 
         var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
 
-        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=sports&city=san+diego&apikey=" + APIKey;
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city=san+diego&apikey=" + APIKey;
 
         $.ajax({
             type: "GET",
@@ -39,15 +40,16 @@
                     var eventsDiv = $("<div>");
 
                     var eventsName = $("<p>").html(`<h2>${eventsResults[i].name}</h2>`);
-                    var eventsImg = $("<img>").attr("src", eventsResults[i].images[0].url);
+                    var eventsImg = $("<img>").attr("src", eventsResults[i].images[3].url);
                     var eventsDate = $("<p>").html(eventsResults[i].dates.start.dateTime);
                     var eventsURL = $("<button class='btn btn-default'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
                     var hr = $('<hr />');
 
+                    $(eventsImg).addClass("imgClass");
+
                     eventsDiv.append(eventsName, eventsImg, eventsDate, eventsURL, hr);
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
-
                     $("#eventsDescription").append(eventsDiv);
 
                 }

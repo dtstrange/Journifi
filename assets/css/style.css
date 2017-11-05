@@ -10,3 +10,8 @@ a.navbar-brand {
 	color: white;
 	margin-top: 10px;
 }
+
+.imgClass {
+	width: 200px;
+	float: right;
+}
