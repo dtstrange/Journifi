@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 65818fe0fcf4c9be648061af6af3dc29db6cbe42
 $(document).ready(function(){
 	var config = {
     apiKey: "AIzaSyDJeCMZnykLSEpaZy27wRZMA-XewrY9NAI",
@@ -20,6 +25,7 @@ $(document).ready(function(){
 
 			database.ref().set({
 			location: location
+<<<<<<< HEAD
 		  });
 		});//end .then
 		
@@ -32,4 +38,9 @@ $(document).ready(function(){
 		});//end snapshot
 
 	});//end on click
+=======
+		  })
+		})
+	});
+>>>>>>> 65818fe0fcf4c9be648061af6af3dc29db6cbe42
  });
