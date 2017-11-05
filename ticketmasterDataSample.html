@@ -40,14 +40,17 @@
                     var eventsDiv = $("<div>");
 
                     var eventsName = $("<p>").html(`<h2>${eventsResults[i].name}</h2>`);
-                    var eventsImg = $("<img>").attr("src", eventsResults[i].images[3].url);
+                    var eventsVenue = $("<p>").html(`<h4>${eventsResults[i]._embedded.venues[0].name}</h4>`)
                     var eventsDate = $("<p>").html(eventsResults[i].dates.start.dateTime);
-                    var eventsURL = $("<button class='btn btn-default'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
+                    var eventsImg = $("<img>").attr("src", eventsResults[i].images[3].url);
+                    var eventsURL = $("<button class='btn btn-default btnClass'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
                     var hr = $('<hr />');
 
                     $(eventsImg).addClass("imgClass");
+                    $(eventsDate).addClass("dateClass");
 
-                    eventsDiv.append(eventsName, eventsImg, eventsDate, eventsURL, hr);
+
+                    eventsDiv.append(eventsName, eventsVenue, eventsImg, eventsDate, eventsURL, hr);
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
                     $("#eventsDescription").append(eventsDiv);

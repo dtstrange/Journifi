@@ -13,5 +13,13 @@ a.navbar-brand {
 
 .imgClass {
 	width: 200px;
-	float: right;
 }
+
+.btnClass {
+	
+/*	position: relative;
+    bottom: 8px;
+    right: 16px;
+    font-size: 18px;*/
+}
+
