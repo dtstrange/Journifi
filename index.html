@@ -24,7 +24,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <!--<ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -36,7 +36,7 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
@@ -65,22 +65,7 @@
                 <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
                 <!-- Inline CSS based on choices in "Settings" tab -->
                 <style>
-                .bootstrap-iso .formden_header h2,
-                .bootstrap-iso .formden_header p,
-                .bootstrap-iso form {
-                    font-family: Arial, Helvetica, sans-serif;
-                    color: black
-                    background-color:rgba(255,255,255,.4)
-                }
 
-                .bootstrap-iso form button,
-                .bootstrap-iso form button:hover {
-                    color: white !important;
-                }
-
-                .asteriskField {
-                    color: red;
-                }
                 </style>
                 <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
                 <div class="bootstrap-iso">
@@ -88,28 +73,21 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
-                                    <div class="form-group ">
-                                        <label class="control-label col-sm-2 requiredField" for="date">
-                                            Date
-                                        </label>
-                                        <div class="col-md-12">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar">
-                                                    </i>
-                                                </div>
-                                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
-                                            </div>
+                                    <div class="form-group">
+                                        <label for="startdateinput" class="col-form-label">Start Date</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="date" id="startdateinput">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-sm-10 col-sm-offset-2">
-                                            <input name="_honey" style="display:none" type="text" />
-                                            <button class="btn btn-primary " name="submit" type="submit">
-                                                Submit
-                                            </button>
+                                        <label for="enddateinput" class="col-form-label">End Date</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="date" id="enddateinput">
                                         </div>
                                     </div>
+                                    <span class="input-group-btn">
+                                      <button class="btn btn-default" type="button">Search</button>
+                                    </span>
                                 </form>
                             </div>
                         </div>
