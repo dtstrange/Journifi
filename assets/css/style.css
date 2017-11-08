@@ -1,9 +1,18 @@
+
 body {
     background-image: url(http://www.hdwallpaperspulse.com/wp-content/uploads/2016/10/14/palm-beach-holidays-image.jpg);
     background-size: 100%;
+    background-repeat: no-repeat;
 }
 
+img {
+	align-content: center;
+}
 
+.row {
+	text-align: center;
+	font-family:'Russo One', sans-serif; 
+}
 
 .bootstrap-iso .formden_header h2,
 .bootstrap-iso .formden_header p,
@@ -19,4 +28,25 @@ body {
 
 .asteriskField {
     color: red;
+}
+
+label {
+	color: white;
+}
+
+#searchbutton {
+	margin-top: 25px;
+}
+
+a.navbar-brand {
+	color: white;
+	margin-top: 10px;
+}
+
+.imgClass {
+	width: 300px;
+}
+
+body {
+	padding-top: 20px;
 }
