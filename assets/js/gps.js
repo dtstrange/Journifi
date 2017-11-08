@@ -28,7 +28,7 @@ $(document).ready(function() {
         database.ref().on("value", function(snapshot) {
             var lat = snapshot.val().location.lat;
             var lng = snapshot.val().location.lng;
-            $("#locationinput").val(lat + ", " + lng);
+            $("#locationinput").val(lat + ", " + lng); //change to different input space (currently being inputted in location input)
             console.log("lat: " + lat);
             console.log("lng: " + lng);
         }); //end snapshot
