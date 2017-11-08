@@ -10,6 +10,10 @@ img {
 	size: 100%;
 }
 
+#Logo_index {
+	padding-top: 20px;
+}
+
 .row {
 	text-align: center;
 	font-family:'Russo One', sans-serif; 
@@ -46,8 +50,4 @@ a.navbar-brand {
 
 .imgClass {
 	width: 300px;
-}
-
-body {
-	padding-top: 20px;
 }
