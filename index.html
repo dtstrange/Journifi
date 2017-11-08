@@ -2,10 +2,14 @@
 <html>
 <head>
   <title>Journifi</title>
-  <link rel="stylesheet" href="./assets/style.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- bootstrap stylesheet --> 
+  <link rel="stylesheet" href="./assets/css/style.css"><!-- local style sheet -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><!-- jquery -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- bootstrap jquery -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script><!-- axios -->
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script><!-- firebase -->
+  <script type="text/javascript" src="./assets/js/gps.js"></script>
 </head>
 
 <body>
@@ -54,6 +58,9 @@
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search Location">
           <span class="input-group-btn">
+            <button id="locate" type="button" class="btn btn-default btn-md">
+  <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Locate
+</button>
             <button class="btn btn-default" type="button">Search</button>
           </span>
         </div><!-- /input-group -->
