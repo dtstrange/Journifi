@@ -1,26 +1,35 @@
-// Begin TicketMaster API data -- need to connect input from index2 to the queryURL below -- let's talk about that on Mon/Tue -- What is being input?
 
 $(document).ready(function() {
 
     $("#searchbutton").on("click", function() {
         event.preventDefault();
-        // //grab values of inputs from by targeting ids of input and throw it in the empty variables made above.
-        // var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
-        // var city = $("#locationinput").val().trim();
-        // var startDate = $("#startdateinput").val().trim();
-        // var startDateISO = startDate.toISOString().split('.')[0] + "Z".
-        // var endDate = $("#enddateinput").val().trim();
-        // var endDateISO = endDate.toISOString().split('.')[0] + "Z";
-        // //add sort Sorting order of the search result. Allowable values : 'name,asc', 'name,desc', 'date,asc', 'date,desc', 'relevance,asc', 'relevance,desc'
+        //grab values of inputs from by targeting ids of input and throw it in the empty variables made above.
+        var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
+        var city = $("#locationinput").val().trim().replace(/\s+/g, '+');
+        var latLong = $("#latLongInput").val().trim();
+        var startDate = new Date($("#startdateinput").val());
+        var startDateISO = startDate.toISOString().split('.')[0] + "Z";
+        var endDate =  new Date($("#enddateinput").val());
+        var endDateISO = endDate.toISOString().split('.')[0] + "Z";
+        var category = "music";
+        //add sort Sorting order of the search result. Allowable values : 'name,asc', 'name,desc', 'date,asc', 'date,desc', 'relevance,asc', 'relevance,desc'
 
-        // var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?" +
-        //     "&city=" + city +
-        //     "&startDateTime" + startDateISO +
-        //     "&endDateTime" + endDateISO +
-        //     // + "&sort=" + sort  <-- need to add sort function later
-        //     "&apikey=" + APIKey;
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?" + 
+            "classificationName=" + category +
+            "&city=" + city +
+            "&latlong=" + latLong +
+            "&radius=50" + 
+            "&startDateTime=" + startDateISO +
+            "&endDateTime=" + endDateISO +
+            "&sort=date,asc" + 
+            "&apikey=" + APIKey;
 
-        // console.log(queryURL);
+        // var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city=&apikey=" + APIKey;
+        
+        console.log("start date: " + startDateISO);
+        console.log("end date: " + endDateISO)
+
+        console.log(queryURL);
         
         $.ajax({
             type: "GET",
@@ -39,8 +48,8 @@ $(document).ready(function() {
 
                     var eventsDiv = $("<div>");
 
-                    var eventsName = $("<p>").html(`<h2>${eventsResults[i].name}</h2>`);
-                    var eventsVenue = $("<p>").html(`<h4>${eventsResults[i]._embedded.venues[0].name}</h4>`)
+                    var eventsName = $("<p>").html(`${eventsResults[i].name}`);
+                    var eventsVenue = $("<p>").html(`${eventsResults[i]._embedded.venues[0].name}`)
                     var eventsDate = $("<p>").html(eventsResults[i].dates.start.dateTime);
                     var eventsImg = $("<img>").attr("src", eventsResults[i].images[3].url);
                     var eventsURL = $("<button class='btn btn-default btnClass'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
@@ -63,7 +72,7 @@ $(document).ready(function() {
 
             },
             error: function(xhr, status, err) {
-                // This time, we do not end up here!
+                
             }
         });//AJAX END
 
