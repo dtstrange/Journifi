@@ -12,17 +12,16 @@ $(document).ready(function() {
         var endDateISO = endDate.toISOString().split('.')[0] + "Z";
         var category = "music";
 
-
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?" +
             "classificationName=" + category +
             "&city=" + city +
             "&latlong=" + latLong +
             "&radius=50" +
+            "&size=50" + 
             "&startDateTime=" + startDateISO +
             "&endDateTime=" + endDateISO +
             "&sort=date,asc" +
             "&apikey=" + APIKey;
-
 
         console.log(queryURL);
 
@@ -33,7 +32,6 @@ $(document).ready(function() {
             dataType: "json",
             success: function(json) {
                 console.log(json);
-                //events is an array -- write loop to pull from array
 
                 var eventsResults = json._embedded.events;
 
@@ -51,18 +49,15 @@ $(document).ready(function() {
                     var eventsURL = $("<button class='btn btn-default btnClass'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
                     var hr = $('<hr />');
 
-
                     $(eventsImg).addClass("imgClass");
                     $(eventsDate).addClass("dateClass");
-
 
                     eventsDiv.append(eventsName, eventsVenue, eventsImg, eventsDateFormat, eventsURL, hr);
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
                     $("#eventsDescription").append(eventsDiv);
 
-                } // for loop end
-
+                }
 
             },
             error: function(xhr, status, err) {
