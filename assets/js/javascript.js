@@ -1,5 +1,80 @@
 $(document).ready(function() {
 
+    var category = "";
+    var instructions = "<p id='instructions' class='text-center'>Now choose your location and date at on the top menu and click Search!<p>";
+
+    $(".imgcontainer").on("click", function() {
+        category = this.id;
+        console.log(this.id)
+    });
+
+    $("#sports").on("click", function() {
+        $("#eventsDescription").empty();
+        $("#eventsDescription").addClass("text-center");
+
+        var bigtext = $("<p>");
+        var image = $("<img>");
+        bigtext.append("SPORTS");
+        bigtext.attr("class","bigtext");
+        $("#eventsDescription").append(bigtext);
+        image.attr("src","./assets/images/sports.png");
+        image.attr("style", "width: 200px");
+        image.attr("style", "height: 200px");
+        $("#eventsDescription").append(instructions);
+        $("#eventsDescription").append(image); 
+    });
+
+
+    $("#music").on("click", function() {
+        $("#eventsDescription").empty();
+        $("#eventsDescription").addClass("text-center");
+
+        var bigtext = $("<p>");
+        var image = $("<img>");
+        bigtext.append("MUSIC");
+        bigtext.attr("class","bigtext");
+        $("#eventsDescription").append(bigtext);
+        image.attr("src","./assets/images/music.png");
+        image.attr("style", "width: 200px");
+        image.attr("style", "height: 200px");
+        $("#eventsDescription").append(instructions);
+        $("#eventsDescription").append(image);    
+    });
+
+
+    $("#family").on("click", function() {
+        $("#eventsDescription").empty();
+        $("#eventsDescription").addClass("text-center");
+
+        var bigtext = $("<p>");
+        var image = $("<img>");
+        bigtext.append("FAMILY");
+        bigtext.attr("class","bigtext");
+        $("#eventsDescription").append(bigtext);
+        image.attr("src","./assets/images/family.png");
+        image.attr("style", "width: 200px");
+        image.attr("style", "height: 200px");
+        $("#eventsDescription").append(instructions);
+        $("#eventsDescription").append(image);    
+    });
+
+
+    $("#artstheater").on("click", function() {
+        $("#eventsDescription").empty();
+        $("#eventsDescription").addClass("text-center");
+
+        var bigtext = $("<p>");
+        var image = $("<img>");
+        bigtext.append("ARTS & THEATER");
+        bigtext.attr("class","bigtext");
+        $("#eventsDescription").append(bigtext);
+        image.attr("src","./assets/images/arts&theater.png");
+        image.attr("style", "width: 200px");
+        image.attr("style", "height: 200px");
+        $("#eventsDescription").append(instructions);
+        $("#eventsDescription").append(image);
+    });
+
     $("#searchbutton").on("click", function() {
         $("#eventsDescription").empty();
 
@@ -7,17 +82,14 @@ $(document).ready(function() {
 
         var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
         var city = $("#locationinput").val().trim().replace(/\s+/g, '+');
-        var latLong = $("#latLongInput").val().trim();
         var startDate = new Date($("#startdateinput").val());
         var startDateISO = startDate.toISOString().split('.')[0] + "Z";
         var endDate = new Date($("#enddateinput").val());
         var endDateISO = endDate.toISOString().split('.')[0] + "Z";
-        var category = "music"; // comedy, music, sports, arts&theater
 
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?" +
             "classificationName=" + category +
             "&city=" + city +
-            "&latlong=" + latLong +
             "&radius=50" +
             "&size=50" + 
             "&startDateTime=" + startDateISO +
