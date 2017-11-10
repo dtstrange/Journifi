@@ -11,22 +11,16 @@ a.navbar-brand {
 	margin-top: 10px;
 }
 
-<<<<<<< HEAD
 .imgClass {
-	width: 100%;
-}
-=======
-/*.imgClass {
 	width: 300px;
-}*/
->>>>>>> dac43458d802ce490c64813207ee2f27c875f10b
+}
 
 .btnClass {
 	
 
 }
 
-#logo {
-	width: 110px;
-	margin-left: 10px;
+.results-div {
+
 }
+
