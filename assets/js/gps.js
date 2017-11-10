@@ -16,11 +16,12 @@ $(document).ready(function() {
         axios.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDxqJutbSvsf280kK98GODy0fkmj9zRG0E ")
 
             .then(function(response) {
-                console.log(response);
+                // console.log(response);
                 var location = response.data.location;
 
                 database.ref().set({
                     location: location
+                    
 
                 });
             }); //end .then
@@ -28,7 +29,7 @@ $(document).ready(function() {
         database.ref().on("value", function(snapshot) {
             var lat = snapshot.val().location.lat;
             var lng = snapshot.val().location.lng;
-            $("#locationinput").val(lat + ", " + lng);
+            $("#latLongInput").val(lat + "," + lng);
             console.log("lat: " + lat);
             console.log("lng: " + lng);
         }); //end snapshot
