@@ -46,6 +46,7 @@ $(document).ready(function() {
 
                 for (var i = 0; i < eventsResults.length; i++) {
 
+                    var columnPanel = $("<div>");
                     var eventsDiv = $("<div>");
                     eventsDiv.attr("class", "panel panel-default");
                     var headingDiv = $("<div>");
@@ -60,14 +61,15 @@ $(document).ready(function() {
 
                     $(eventsImg).addClass("imgClass");
                     $(eventsDate).addClass("dateClass");
-
                     bodyDiv.append(eventsVenue, eventsDate, eventsImg, "<br>", eventsURL)
 
                     headingDiv.append(eventsName);
                     eventsDiv.append(headingDiv, bodyDiv);
+                    columnPanel.append(eventsDiv);
+                    columnPanel.attr("class","col-md-4");
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
-                    $("#eventsDescription").append(eventsDiv);
+                    $("#eventsDescription").append(columnPanel);
 
                 } // for loop end
 
