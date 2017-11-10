@@ -53,7 +53,7 @@ $(document).ready(function() {
                     $(eventsImg).addClass("imgClass");
                     $(eventsDate).addClass("dateClass");
 
-                    eventsDiv.append(eventsName, eventsVenue, eventsImg, eventsDateFormat, eventsURL, hr);
+                    eventsDiv.append(eventsName, eventsVenue, eventsImg, eventsDateFormat, eventsURL);
 
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
