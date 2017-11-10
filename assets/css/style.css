@@ -1,21 +1,131 @@
-label {
+body {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-color: #2FC0ED;
+}
+
+.mainContent{
+	padding-top: 100px;
+}
+
+.navPic {
+	height: 50px;
+}
+
+img {
+	align-content: center;
+	height: 400px;
+
+}
+
+.image {
+	width: 180px;
+	height: 180px;
+}
+
+#introtext{
 	color: white;
+	font-family: "Open Sans";
+	font-weight: bold;
+	font-size: 50px;
+	margin-top: 130px;
+}
+
+#chooseyourcat{
+	color: white;
+	font-family: "Open Sans";
+	font-size: 20px;
+	margin: 20px 0px 40px 0px;
+}
+
+
+#Logo_index {
+	padding-top: 20px;
+}
+
+.row {
+	text-align: center;
+	font-family:'Russo One', sans-serif; 
+}
+
+.bootstrap-iso .formden_header h2,
+.bootstrap-iso .formden_header p,
+.bootstrap-iso form {
+    font-family: "Open Sans";
+    color: black background-color:rgba(255, 255, 255, .4)
+}
+
+.bootstrap-iso form button,
+.bootstrap-iso form button:hover {
+    color: white !important;
+}
+
+.asteriskField {
+    color: red;
+}
+
+label {
+    color: white;
+    font-family: "Open Sans";
 }
 
 #searchbutton {
 	margin-top: 25px;
 }
 
-a.navbar-brand {
-	color: white;
-	margin-top: 10px;
+.navbar-brand {
+	margin:0 auto;
 }
 
 .imgClass {
 	width: 300px;
 }
 
-.btnClass {
-	
+.imgcontainer {
+  position: relative;
+  width: 15%;
+}
 
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #2FC0ED;
+  overflow: hidden;
+  width: 100%;
+  height:0;
+  transition: .5s ease;
+}
+
+.imgcontainer:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 35px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.bigtext {
+	font-weight: bold;
+	font-family: "Open Sans";
+	color: white;
+	font-size: 80px;
+	margin-top: 200px;
+}
+
+#instructions {
+	font-family: "Open Sans";
+	color: white;
+	font-size: 20px;
 }
