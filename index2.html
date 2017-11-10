@@ -2,13 +2,17 @@
 <html>
 
 <head>
-    <title>Journifi</title>
+    <title>Journified</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- bootstrap stylesheet -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- google fonts -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/tmsStyle.css">
     <!-- local stylesheet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- jquery -->
@@ -22,17 +26,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img id="logo" alt="journifi" src="./assets/images/journifilogo.png"></a>
+                <a class="navbar-brand" href="#"><img id = "Logo_Nav" src = "assets/Images/journifilogo.png"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,8 +38,7 @@
                     <div class="form-group">
                         <label for="example-date-input" class="col-form-label">Location</label>
                         <div class="col-10">
-                            <input id="locationinput" type="text" class="form-control" placeholder="City">
-                            <input id="latLongInput" type="text" class="form-control" placeholder="Lat/Long">
+                            <input id="locationinput" type="text" class="form-control" placeholder="i.e. Irvine, CA">
                             <button id="locate" type="button" class="btn btn-default btn-md">
                                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
                             </button>
@@ -61,25 +58,16 @@
                     </div>
                     <button type="submit" id="searchbutton" class="btn btn-default">Search</button>
                 </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li id="datedropdown"><a href="#">Date</a></li>
-                            <li id="distancedropdown"><a href="#">Distance</a></li>
-                            <li id="bestdropdown"><a href="#">Best</a></li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-center" id="innercontainer">
-        <div id="eventsDescription" class="row">
-            <!-- Data Return Here -->
-        </div>
+    </div>
+    </script>
+    <div id="eventsDescription">
+    </div>
     </div>
     </script>
     <!--Link to firebase-->

@@ -41,9 +41,14 @@ $(document).ready(function() {
 
                 for (var i = 0; i < eventsResults.length; i++) {
 
-                    var eventsDiv = $('<div class="results-div col-sm-4 col-md-2">');
-
-                    var eventsName = $("<p id='event'>").html(`${eventsResults[i].name}`);
+                    var columnPanel = $("<div>");
+                    var eventsDiv = $('<div>');
+                    eventsDiv.attr("class", "panel panel-default");
+                    var headingDiv = $("<div>");
+                    headingDiv.attr("class", "panel-heading");
+                    var bodyDiv = $("<div>");
+                    bodyDiv.attr("class", "panel-body");
+                    var eventsName = $("<p class='panel-title' id='event'>").html(`${eventsResults[i].name}`);
                     var eventsVenue = $("<p>").html(`${eventsResults[i]._embedded.venues[0].name}`)
                     var eventsDate = eventsResults[i].dates.start.dateTime;
                     var eventsDateFormat = $("<p>").html(moment(eventsDate).format('MMMM Do, YYYY h:mm a'));
@@ -53,11 +58,18 @@ $(document).ready(function() {
                     $(eventsImg).addClass("imgClass");
                     $(eventsDate).addClass("dateClass");
 
-                    eventsDiv.append(eventsName, eventsVenue, eventsImg, eventsDateFormat, eventsURL);
 
+                    bodyDiv.append(eventsVenue, eventsDateFormat, eventsImg, "<br>", eventsURL);
+
+                    headingDiv.append(eventsName);
+                    eventsDiv.append(headingDiv, bodyDiv);
+                    columnPanel.append(eventsDiv);
+                    columnPanel.attr("class","col-md-4");
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
-                    $("#eventsDescription").append(eventsDiv);
+                    $("#eventsDescription").append(columnPanel);
+                    
+                
                 }
 
             },
