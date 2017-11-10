@@ -36,7 +36,7 @@ img {
 	color: white;
 	font-family: "Open Sans";
 	font-size: 20px;
-	margin: 20px 0px 40px 0px;
+	margin: 20px 0px 60px 0px;
 }
 
 
@@ -121,11 +121,13 @@ label {
 	font-family: "Open Sans";
 	color: white;
 	font-size: 80px;
-	margin-top: 200px;
+	margin-top: 100px;
 }
 
 #instructions {
 	font-family: "Open Sans";
 	color: white;
 	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 }

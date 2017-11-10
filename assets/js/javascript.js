@@ -10,41 +10,69 @@ $(document).ready(function() {
 
     $("#sports").on("click", function() {
         $("#eventsDescription").empty();
+        $("#eventsDescription").addClass("text-center");
+
         var bigtext = $("<p>");
+        var image = $("<img>");
         bigtext.append("SPORTS");
-        bigtext.attr("class","text-center bigtext");
+        bigtext.attr("class","bigtext");
         $("#eventsDescription").append(bigtext);
+        image.attr("src","./assets/images/sports.png");
+        image.attr("style", "width: 200px");
+        image.attr("style", "height: 200px");
         $("#eventsDescription").append(instructions);
+        $("#eventsDescription").append(image); 
     });
 
 
     $("#music").on("click", function() {
         $("#eventsDescription").empty();
+        $("#eventsDescription").addClass("text-center");
+
         var bigtext = $("<p>");
+        var image = $("<img>");
         bigtext.append("MUSIC");
-        bigtext.attr("class","text-center bigtext");
+        bigtext.attr("class","bigtext");
         $("#eventsDescription").append(bigtext);
+        image.attr("src","./assets/images/music.png");
+        image.attr("style", "width: 200px");
+        image.attr("style", "height: 200px");
         $("#eventsDescription").append(instructions);
+        $("#eventsDescription").append(image);    
     });
 
 
     $("#family").on("click", function() {
         $("#eventsDescription").empty();
+        $("#eventsDescription").addClass("text-center");
+
         var bigtext = $("<p>");
+        var image = $("<img>");
         bigtext.append("FAMILY");
-        bigtext.attr("class","text-center bigtext");
+        bigtext.attr("class","bigtext");
         $("#eventsDescription").append(bigtext);
+        image.attr("src","./assets/images/family.png");
+        image.attr("style", "width: 200px");
+        image.attr("style", "height: 200px");
         $("#eventsDescription").append(instructions);
+        $("#eventsDescription").append(image);    
     });
 
 
     $("#artstheater").on("click", function() {
         $("#eventsDescription").empty();
+        $("#eventsDescription").addClass("text-center");
+
         var bigtext = $("<p>");
+        var image = $("<img>");
         bigtext.append("ARTS & THEATER");
-        bigtext.attr("class","text-center bigtext");
+        bigtext.attr("class","bigtext");
         $("#eventsDescription").append(bigtext);
+        image.attr("src","./assets/images/arts&theater.png");
+        image.attr("style", "width: 200px");
+        image.attr("style", "height: 200px");
         $("#eventsDescription").append(instructions);
+        $("#eventsDescription").append(image);
     });
 
     $("#searchbutton").on("click", function() {
