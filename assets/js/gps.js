@@ -16,7 +16,7 @@ $(document).ready(function() {
         axios.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDxqJutbSvsf280kK98GODy0fkmj9zRG0E ")
 
             .then(function(response) {
-                console.log(response);
+                // console.log(response);
                 var location = response.data.location;
 
                 database.ref().set({

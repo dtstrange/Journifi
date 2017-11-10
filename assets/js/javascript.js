@@ -10,7 +10,7 @@ $(document).ready(function() {
         var startDateISO = startDate.toISOString().split('.')[0] + "Z";
         var endDate = new Date($("#enddateinput").val());
         var endDateISO = endDate.toISOString().split('.')[0] + "Z";
-        var category = "music";
+        var category = "music"; // comedy, music, sports, arts&theater
 
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?" +
             "classificationName=" + category +
@@ -39,13 +39,13 @@ $(document).ready(function() {
 
                 for (var i = 0; i < eventsResults.length; i++) {
 
-                    var eventsDiv = $("<div>");
+                    var eventsDiv = $('<div class="results-div col-sm-4 col-md-2">');
 
                     var eventsName = $("<p id='event'>").html(`${eventsResults[i].name}`);
                     var eventsVenue = $("<p>").html(`${eventsResults[i]._embedded.venues[0].name}`)
                     var eventsDate = eventsResults[i].dates.start.dateTime;
                     var eventsDateFormat = $("<p>").html(moment(eventsDate).format('MMMM Do, YYYY h:mm a'));
-                    var eventsImg = $("<img>").attr("src", eventsResults[i].images[3].url);
+                    var eventsImg = $('<img class="img-responsive">').attr("src", eventsResults[i].images[3].url);
                     var eventsURL = $("<button class='btn btn-default btnClass'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
                     var hr = $('<hr />');
 
