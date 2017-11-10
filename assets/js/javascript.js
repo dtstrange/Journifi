@@ -7,7 +7,6 @@ $(document).ready(function() {
 
         var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
         var city = $("#locationinput").val().trim().replace(/\s+/g, '+');
-        var latLong = $("#latLongInput").val().trim();
         var startDate = new Date($("#startdateinput").val());
         var startDateISO = startDate.toISOString().split('.')[0] + "Z";
         var endDate = new Date($("#enddateinput").val());
@@ -17,7 +16,6 @@ $(document).ready(function() {
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?" +
             "classificationName=" + category +
             "&city=" + city +
-            "&latlong=" + latLong +
             "&radius=50" +
             "&size=50" + 
             "&startDateTime=" + startDateISO +
