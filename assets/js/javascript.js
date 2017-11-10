@@ -58,6 +58,7 @@ $(document).ready(function() {
                     $(eventsImg).addClass("imgClass");
                     $(eventsDate).addClass("dateClass");
 
+
                     bodyDiv.append(eventsVenue, eventsDateFormat, eventsImg, "<br>", eventsURL);
 
                     headingDiv.append(eventsName);
