@@ -13,6 +13,15 @@ body {
 	height: 50px;
 }
 
+p {
+	font-family: "Open Sans";
+}
+
+p#event {
+	font-family: "Open Sans";
+	font-weight: bold;
+}
+
 img {
 	align-content: center;
 	height: 400px;
