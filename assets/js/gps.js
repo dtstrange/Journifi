@@ -32,8 +32,6 @@ $(document).ready(function() {
 
             $("#latLongInput").val(lat + "," + lng);
 
-            $("#locationinput").val(lat + ", " + lng); //change to different input space (currently being inputted in location input)
-
             console.log("lat: " + lat);
             console.log("lng: " + lng);
         }); //end snapshot
