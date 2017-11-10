@@ -1,4 +1,3 @@
-
 body {
     background-size: 100%;
     background-repeat: no-repeat;
@@ -40,7 +39,7 @@ img {
 }
 
 label {
-	color: white;
+	color: #00AEEF;
 }
 
 #searchbutton {
@@ -56,28 +55,3 @@ a.navbar-brand {
 	width: 300px;
 }
 
-label {
-	color: white;
-}
-
-#searchbutton {
-	margin-top: 25px;
-}
-
-a.navbar-brand {
-	color: white;
-	margin-top: 10px;
-}
-
-.imgClass {
-	width: 300px;
-}
-
-.btnClass {
-	
-
-}
-
-.results-div {
-
-}
