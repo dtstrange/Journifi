@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
     $("#searchbutton").on("click", function() {
+        $("#eventsDescription").empty();
+
         event.preventDefault();
 
         var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
@@ -47,16 +49,15 @@ $(document).ready(function() {
                     var eventsDateFormat = $("<p>").html(moment(eventsDate).format('MMMM Do, YYYY h:mm a'));
                     var eventsImg = $('<img class="img-responsive">').attr("src", eventsResults[i].images[3].url);
                     var eventsURL = $("<button class='btn btn-default btnClass'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
-                    var hr = $('<hr />');
 
                     $(eventsImg).addClass("imgClass");
                     $(eventsDate).addClass("dateClass");
 
                     eventsDiv.append(eventsName, eventsVenue, eventsImg, eventsDateFormat, eventsURL, hr);
+
                     console.log(eventsResults[i].name);
                     console.log(eventsResults[i].dates.start);
                     $("#eventsDescription").append(eventsDiv);
-
                 }
 
             },
@@ -64,7 +65,6 @@ $(document).ready(function() {
 
             }
         }); //AJAX END
-
 
     });
 });
