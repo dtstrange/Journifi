@@ -1,5 +1,52 @@
 $(document).ready(function() {
 
+    var category = "";
+    var instructions = "<p id='instructions' class='text-center'>Now choose your location and date at on the top menu and click Search!<p>";
+
+    $(".imgcontainer").on("click", function() {
+        category = this.id;
+        console.log(this.id)
+    });
+
+    $("#sports").on("click", function() {
+        $("#eventsDescription").empty();
+        var bigtext = $("<p>");
+        bigtext.append("SPORTS");
+        bigtext.attr("class","text-center bigtext");
+        $("#eventsDescription").append(bigtext);
+        $("#eventsDescription").append(instructions);
+    });
+
+
+    $("#music").on("click", function() {
+        $("#eventsDescription").empty();
+        var bigtext = $("<p>");
+        bigtext.append("MUSIC");
+        bigtext.attr("class","text-center bigtext");
+        $("#eventsDescription").append(bigtext);
+        $("#eventsDescription").append(instructions);
+    });
+
+
+    $("#family").on("click", function() {
+        $("#eventsDescription").empty();
+        var bigtext = $("<p>");
+        bigtext.append("FAMILY");
+        bigtext.attr("class","text-center bigtext");
+        $("#eventsDescription").append(bigtext);
+        $("#eventsDescription").append(instructions);
+    });
+
+
+    $("#artstheater").on("click", function() {
+        $("#eventsDescription").empty();
+        var bigtext = $("<p>");
+        bigtext.append("ARTS & THEATER");
+        bigtext.attr("class","text-center bigtext");
+        $("#eventsDescription").append(bigtext);
+        $("#eventsDescription").append(instructions);
+    });
+
     $("#searchbutton").on("click", function() {
         $("#eventsDescription").empty();
 
@@ -11,7 +58,6 @@ $(document).ready(function() {
         var startDateISO = startDate.toISOString().split('.')[0] + "Z";
         var endDate = new Date($("#enddateinput").val());
         var endDateISO = endDate.toISOString().split('.')[0] + "Z";
-        var category = "music"; // comedy, music, sports, arts&theater
 
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?" +
             "classificationName=" + category +
