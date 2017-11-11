@@ -95,7 +95,12 @@ label {
 
 .imgcontainer {
   position: relative;
-  width: 15%;
+/*  width: 18%;*/
+  padding: 10px;
+  margin-bottom: 20px;
+
+
+  align-items: center;
 }
 
 .overlay {
