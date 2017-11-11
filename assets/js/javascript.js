@@ -1,11 +1,22 @@
 $(document).ready(function() {
 
     var category = "";
-    var instructions = "<p id='instructions' class='text-center'>Now choose your location and date at on the top menu and click Search!<p>";
+    var instructions = "<p id='instructions' class='text-center'>Now choose your location and date on the top menu and click Search!<p>";
+
 
     $(".imgcontainer").on("click", function() {
+
+
         category = this.id;
         console.log(this.id)
+        // JD: add if-else to modify the id of arts&theater since you can't have an id that includes a special character
+        if (this.id === 'arts') {
+            category = 'arts&theater'
+        } else {
+            category = this.id
+        }
+
+        console.log(category);
     });
 
     $("#sports").on("click", function() {
@@ -59,7 +70,7 @@ $(document).ready(function() {
     });
 
 
-    $("#artstheater").on("click", function() {
+    $("#arts").on("click", function() {
         $("#eventsDescription").empty();
         $("#eventsDescription").addClass("text-center");
 
@@ -82,6 +93,8 @@ $(document).ready(function() {
 
         var APIKey = "1UbeVqHP9VHYsr7uCAJm0yDYCd8AS6Nr";
         var city = $("#locationinput").val().trim().replace(/\s+/g, '+');
+        // JD: adding back latLong
+        var latLong = $("#latLongInput").val().trim();
         var startDate = new Date($("#startdateinput").val());
         var startDateISO = startDate.toISOString().split('.')[0] + "Z";
         var endDate = new Date($("#enddateinput").val());
@@ -90,6 +103,8 @@ $(document).ready(function() {
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?" +
             "classificationName=" + category +
             "&city=" + city +
+            // JD: adding back latLong to insert to queryURL
+            "&latlong=" + latLong +
             "&radius=50" +
             "&size=50" + 
             "&startDateTime=" + startDateISO +
@@ -124,7 +139,8 @@ $(document).ready(function() {
                     var eventsVenue = $("<p>").html(`${eventsResults[i]._embedded.venues[0].name}`)
                     var eventsDate = eventsResults[i].dates.start.dateTime;
                     var eventsDateFormat = $("<p>").html(moment(eventsDate).format('MMMM Do, YYYY h:mm a'));
-                    var eventsImg = $('<img class="img-responsive">').attr("src", eventsResults[i].images[3].url);
+                    // JD: adding center-block to the img class to center the img
+                    var eventsImg = $('<img class="img-responsive center-block">').attr("src", eventsResults[i].images[3].url);
                     var eventsURL = $("<button class='btn btn-default btnClass'>").html(`<a href ="${eventsResults[i].url}" target="_blank">More Info</a>`);
 
                     $(eventsImg).addClass("imgClass");

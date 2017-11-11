@@ -2,7 +2,13 @@
 <html>
 
 <head>
-    <title>Journified</title>
+    <!-- change title to match project name -->
+    <title>Journifi</title>
+    <!-- JD: add meta tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="journifi -- events, concerts, sports, and family -- what do you want to do with your day?">
+    <meta name="keywords" content="HTML,CSS,JavaScript,ajax,JSON,axios">
+    <meta name="author" content="Team Dale - UCI Coding Bootcamp">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -37,7 +43,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <!-- add relative link to image so that when clicked it refreshes the page -->
+                <a href="./index2.html" class="navbar-brand" href="#">
                     <img src="assets/Images/journifilogo.png" class="navPic" alt="Brand">
                 </a>
             </div>
@@ -81,7 +88,6 @@
             <p id="introtext">Welcome to Journifi</p>
             <p id="chooseyourcat">Choose a category below to find events in your area</p>
         </div>
-
         <div class="row text-center">
             <div class="col-md-2 col-md-offset-2 imgcontainer" id="music">
                 <img class="image" src="./assets/images/music.png">
@@ -95,11 +101,13 @@
                     <div class="text">Sports</div>
                 </div>
             </div>
-
-            <div class="col-md-2 imgcontainer" id="artstheater">
+            <!-- change id to "arts" since an id cannot include the ampersand -->
+            <div class="col-md-2 imgcontainer" id="arts">
                 <img class="image" src="./assets/images/arts&theater.png">
                 <div class="overlay">
-                    <div class="text">Arts<br>and<br>Theater</div>
+                    <div class="text">Arts
+                        <br>and
+                        <br>Theater</div>
                 </div>
             </div>
             <div class="col-md-2 imgcontainer" id="family">
