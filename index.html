@@ -2,84 +2,129 @@
 <html>
 
 <head>
+    <!-- change title to match project name -->
     <title>Journifi</title>
+    <!-- JD: add meta tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="journifi -- events, concerts, sports, and family -- what do you want to do with your day?">
+    <meta name="keywords" content="HTML,CSS,JavaScript,ajax,JSON,axios">
+    <meta name="author" content="Team Dale - UCI Coding Bootcamp">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Journifi</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- bootstrap stylesheet -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- local style sheet -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <!-- google fonts -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- local stylesheet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- jquery -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- bootstrap jquery -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- axios -->
     <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
     <!-- firebase -->
     <script type="text/javascript" src="./assets/js/gps.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
-    <link type="text/javascript" href="assets/js/gps.js">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="container-fluid text-center" id="innercontainer">
-            <div class="col-md-1">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- add relative link to image so that when clicked it refreshes the page -->
+                <a href="./index.html" class="navbar-brand" href="#">
+                    <img src="assets/images/journifilogo.png" class="navPic" alt="Brand">
+                </a>
             </div>
-            <div class="col-md-10, mainContent">
-                <div class="row">
-                    <img id="Logo_index" src="assets/Images/Logo_index.png" class = "img-circle">
-                </div>
-                <div class="row">
-                    <form class="navbar-form">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-form-label">Location</label>
-                            <div class="col-md-10">
-                                <input id="locationinput" type="text" class="form-control" placeholder="i.e. Irvine, CA">
-                                <button id="locate" type="button" class="btn btn-default btn-md">
-                                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger">Events</button>
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <label for="example-date-input" class="col-form-label">Location</label>
+                        <div class="col-10">
+                            <input id="locationinput" type="text" class="form-control" placeholder="City">
+                            <input id="latLongInput" type="text" class="form-control" placeholder="Lat/Long">
+                            <button id="locate" type="button" class="btn btn-default btn-md">
+                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
                         </div>
-                        <div class="form-group">
-                            <label for="startdateinput" class="col-form-label">Start Date</label>
-                            <div class="col-md-10">
-                                <input class="form-control" type="date" id="startdateinput">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="startdateinput" class="col-form-label">Start Date</label>
+                        <div class="col-10">
+                            <input class="form-control" type="date" id="startdateinput">
                         </div>
-                        <div class="form-group">
-                            <label for="enddateinput" class="col-form-label">End Date</label>
-                            <div class="col-md-10">
-                                <input class="form-control" type="date" id="enddateinput">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="enddateinput" class="col-form-label">End Date</label>
+                        <div class="col-10">
+                            <input class="form-control" type="date" id="enddateinput">
                         </div>
-                        <button type="submit" id="searchbutton" class="btn btn-default">Search</button>
-                    </form>
+                    </div>
+                    <button type="submit" id="searchbutton" class="btn btn-default">Search</button>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid text-center" id="innercontainer">
+    </div>
+    </script>
+    <div id="eventsDescription">
+        <div class="row">
+            <p id="introtext">Welcome to Journifi</p>
+            <p id="chooseyourcat">Choose a category below to find events in your area</p>
+        </div>
+        <div class="row text-center">
+            <div class="col-sm-offset-2 col-sm-2 col-md-2 col-md-offset-2 imgcontainer" id="music">
+                <img class="image" src="./assets/images/music.png">
+                <div class="overlay">
+                    <div class="text">Music</div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-1">
+            <div class="col-sm-2 col-md-2 imgcontainer" id="sports">
+                <img class="image" src="./assets/images/sports.png">
+                <div class="overlay">
+                    <div class="text">Sports</div>
+                </div>
+            </div>
+            <!-- change id to "arts" since an id cannot include the ampersand -->
+            <div class="col-sm-2 col-md-2 imgcontainer" id="arts">
+                <img class="image" src="./assets/images/arts&theater.png">
+                <div class="overlay">
+                    <div class="text">Arts
+                        <br>and
+                        <br>Theater</div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2 imgcontainer" id="family">
+                <img class="image" src="./assets/images/family.png">
+                <div class="overlay">
+                    <div class="text">Family</div>
+                </div>
+            </div>
         </div>
     </div>
+    </div>
+    </script>
+    <!--Link to firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <!-- Link to Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script type="text/javascript" src="./assets/js/javascript.js"></script>
 </body>
 
 </html>
