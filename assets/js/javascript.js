@@ -106,7 +106,7 @@ $(document).ready(function() {
             // JD: adding back latLong to insert to queryURL
             "&latlong=" + latLong +
             "&radius=50" +
-            "&size=50" + 
+            "&size=60" + 
             "&startDateTime=" + startDateISO +
             "&endDateTime=" + endDateISO +
             "&sort=date,asc" +
