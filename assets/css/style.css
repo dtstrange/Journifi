@@ -87,8 +87,10 @@ label {
 	margin:0 auto;
 }
 
+
+/* JD: changing from width to height limit - this was pushing other panels out of the way */
 .imgClass {
-	width: 300px;
+	height: 200px;
 }
 
 .imgcontainer {
@@ -139,4 +141,10 @@ label {
 	font-size: 20px;
 	margin-top: 20px;
 	margin-bottom: 50px;
+}
+
+
+/* JD: adding panel-title height*/
+.panel-title {
+	height: 40px;
 }
