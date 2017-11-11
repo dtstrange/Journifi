@@ -148,3 +148,19 @@ label {
 .panel-title {
 	height: 40px;
 }
+
+.navbar {
+	min-height: 75px;
+}
+
+@media screen and (max-width: 640px) {
+	#arts {
+		clear: both;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#arts {
+		clear: both;
+	}
+}
